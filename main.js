@@ -5,16 +5,15 @@ import {showRepositories} from './base';
 window.addEventListener('load', () => {
   let input = document.querySelector('input');
 
-  input.addEventListener('blur', () => {
+  input.addEventListener('blur', function() {
     if(this.value == '') return;
     let xhr = new XMLHttpRequest();
     let url = 'https://api.github.com/users/' + this.value + '/repos';
     xhr.open('GET', url, false);
     xhr.send();
     if (xhr.status != 200) {
-      alert( xhr.status + ': ' + xhr.statusText );
+      console.log( xhr.status + ': ' + xhr.statusText );
     } else {
-      alert( xhr.responseText );
       let response = JSON.parse(xhr.responseText);
       showRepositories(response);
     }

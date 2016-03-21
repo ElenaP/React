@@ -4,5 +4,6 @@ export let showRepositories = (data) => {
     let div = document.createElement('div');
     div.innerHTML = arr[arr.length - 1];
     document.body.appendChild(div);
+    console.log(item);
   });
 };
